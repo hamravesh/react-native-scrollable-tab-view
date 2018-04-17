@@ -10,6 +10,7 @@ const {
   Text,
   Platform,
   Dimensions,
+  I18nManager
 } = ReactNative;
 const Button = require('./Button');
 
@@ -159,10 +160,18 @@ const ScrollableTabBar = createReactClass({
       bottom: 0,
     };
 
-    const dynamicTabUnderline = {
-      left: this.state._leftTabUnderline,
-      width: this.state._widthTabUnderline,
-    };
+    let dynamicTabUnderline = {};
+     if(I18nManager.isRTL){
+       dynamicTabUnderline ={
+         right: this.state._leftTabUnderline,
+         width: this.state._widthTabUnderline
+       };
+     } else {
+       dynamicTabUnderline ={
+         left: this.state._leftTabUnderline,
+         width: this.state._widthTabUnderline
+       };
+     }
 
     return <View
       style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}

@@ -11,7 +11,8 @@ const {
   Platform,
   StyleSheet,
   InteractionManager,
-  I18nManager
+  I18nManager,
+  ViewPropTypes
 } = ReactNative;
 const TimerMixin = require('react-timer-mixin');
 const createReactClass = require('create-react-class');
@@ -35,7 +36,7 @@ const ScrollableTabView = createReactClass({
     onChangeTab: PropTypes.func,
     onScroll: PropTypes.func,
     renderTabBar: PropTypes.any,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     contentProps: PropTypes.object,
     scrollWithoutAnimation: PropTypes.bool,
     locked: PropTypes.bool,
